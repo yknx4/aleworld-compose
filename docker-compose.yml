@@ -15,7 +15,7 @@ services:
       DATABASE_URL: "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@db/aleworld"
       SECRET_KEY_BASE: "$SECRET_KEY_BASE"
   techstacknews:
-    image: yknx94/techstack-news:4
+    image: yknx94/techstack-news:5
     restart: always
     environment:
       DATABASE_URL: "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@db/techstacknews"
