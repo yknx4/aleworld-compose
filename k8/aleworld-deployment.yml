@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aleworld
+spec:
+  selector:
+    matchLabels:
+      app: aleworld
+  template:
+    metadata:
+      labels:
+        app: aleworld
+    spec:
+      containers:
+      - name: aleworld
+        image: yknx94/aleworld:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        envFrom:
+          - secretRef:
+              name: aleworld-secret
+        ports:
+        - containerPort: 4000
+          name: aleworld-http

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tsn
+spec:
+  selector:
+    matchLabels:
+      app: tsn
+  template:
+    metadata:
+      labels:
+        app: tsn
+    spec:
+      containers:
+      - name: tsn
+        image: yknx94/techstack-news:13
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        envFrom:
+          - secretRef:
+              name: tsn-secret
+        ports:
+        - containerPort: 4000
+          name: tsn-http
