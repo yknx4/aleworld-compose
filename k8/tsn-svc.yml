@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tsn-svc
+spec:
+  selector:
+    app: tsn
+  type: LoadBalancer
+  ports:
+  - name: tsn-http
+    port: 4000

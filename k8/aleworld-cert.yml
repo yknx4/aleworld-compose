@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ale-world-cert
+spec:
+  commonName: ale.world
+  secretName: ale-world-cert
+  dnsNames:
+    - ale.world
+    - www.ale.world
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
